@@ -1,0 +1,13 @@
+generated: '2026-10-18'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=evrotrust
+packages:
+- name: '@evrotrust/et-react-native-wl-sdk'
+  registry: npm
+  url: https://www.npmjs.com/package/@evrotrust/et-react-native-wl-sdk
+  language: JavaScript
+  official: true
+  version: '2.0.44'
+  published: '2026-10-02'
+  description: Evrotrust React Native WL SDK
+  note: React Native SDK for Evrotrust mobile integration

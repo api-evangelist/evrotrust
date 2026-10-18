@@ -1,0 +1,147 @@
+generated: '2026-10-18'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 10
+  own: 8
+  other_domain: 0
+  platform: 2
+  roles:
+  - api
+  - docs
+  - other
+  - portal
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: api.evrotrust.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: evrotrust.com
+  role: api
+  relation: own
+- host: docs.evrotrust.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: evrotrust.com
+  role: docs
+  relation: own
+- host: evrotrust.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Website
+  - Support
+  - Blog
+  - ReleaseNotes
+  - Compliance
+  - ContactSales
+  - TermsOfService
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: evrotrust.com
+  role: website
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.evrotrust.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - HelpCenter
+  serves:
+  - docs
+  registrable_domain: evrotrust.com
+  role: support
+  relation: own
+- host: portal.evrotrust.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - DeveloperPortal
+  - Login
+  serves:
+  - docs
+  registrable_domain: evrotrust.com
+  role: portal
+  relation: own
+- host: status.evrotrust.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: evrotrust.com
+  role: status
+  relation: own
+- host: support.evrotrust.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: evrotrust.com
+  role: support
+  relation: own
+- host: v.evrotrust.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: evrotrust.com
+  role: other
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform

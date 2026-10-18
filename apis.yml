@@ -1,23 +1,416 @@
 aid: evrotrust
+
 name: Evrotrust
-description: 'Evrotrust is a company surfaced via the API Evangelist harvest backlog (source: kin-score-markets)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: Evrotrust is a European qualified trust service provider (QTSP) under eIDAS offering remote qualified electronic signatures (QES),
+  an EU-notified electronic identification (eID) scheme for KYC/AML-compliant customer verification, electronic timestamps, electronic registered
+  delivery and free validation of electronic signatures and seals. It serves financial services, public sector, telecom, insurance, healthcare,
+  education and iGaming, and publishes developer documentation, an API reference and a Web SDK at docs.evrotrust.com.
+
 url: https://raw.githubusercontent.com/api-evangelist/evrotrust/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:kin-score-markets
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-18 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-18'
+
 modified: '2026-10-18'
+
 tags:
 - Company
-apis: []
+- Trust Services
+- Electronic Signatures
+- Digital Identity
+- eIDAS
+- KYC
+- Identity Verification
+- Timestamping
+- Compliance
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
+image: https://files.readme.io/554d7570aaad6a49e760e45fd3cfccc325344adc4616c9fa0d3e36edfd34439b-evrotrust-logo.svg
+
 common:
+- type: AgenticAccess
+  url: agentic-access/evrotrust-agentic-access.yml
+- type: Plans
+  url: plans/evrotrust-plans-pricing.yml
+- type: Spectral
+  url: rules/evrotrust-rules.yml
+- type: JSONLD
+  url: json-ld/evrotrust-context.jsonld
+- type: Vocabulary
+  url: vocabulary/evrotrust-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/evrotrust-data-model.yml
+- type: Components
+  url: components/evrotrust-components.yml
+- type: Conventions
+  url: conventions/evrotrust-conventions.yml
+- type: Sandbox
+  url: sandbox/evrotrust-sandbox.yml
+- type: Authentication
+  url: authentication/evrotrust-authentication.yml
+- type: Lifecycle
+  url: lifecycle/evrotrust-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/evrotrust-problem-types.yml
+- type: Conformance
+  url: conformance/evrotrust-conformance.yml
+- type: Overlay
+  url: overlays/evrotrust-api-overlay.yaml
+- type: LLMsTxt
+  url: llms/evrotrust-llms.txt
+- type: SecurityTxt
+  url: well-known/evrotrust-status-security.txt
+- type: WellKnown
+  url: well-known/evrotrust-well-known.yml
+- type: Hosts
+  url: hosts/evrotrust-hosts.yml
+- type: Vendors
+  url: vendors/evrotrust-vendors.yml
+- type: SDKs
+  url: packages/evrotrust-packages.yml
+- type: Packages
+  url: packages/evrotrust-packages.yml
 - type: Website
   url: https://evrotrust.com
+- type: DomainSecurity
+  url: security/evrotrust-domain-security.yml
+- type: DeveloperPortal
+  url: https://portal.evrotrust.com/
+- type: Documentation
+  url: https://docs.evrotrust.com/docs
+- type: APIReference
+  url: https://docs.evrotrust.com/reference
+- type: GettingStarted
+  url: https://docs.evrotrust.com/docs/get-started
+- type: StatusPage
+  url: https://status.evrotrust.com/
+- type: HelpCenter
+  url: https://help.evrotrust.com/
+- type: Support
+  url: https://evrotrust.com/support/
+- type: Blog
+  url: https://evrotrust.com/blog/
+- type: ReleaseNotes
+  url: https://evrotrust.com/release-notes/
+- type: Compliance
+  url: https://evrotrust.com/compliance/
+- type: GitHubOrganization
+  url: https://github.com/evrotrust
+- type: LinkedIn
+  url: https://www.linkedin.com/company/evrotrust/
+- type: Login
+  url: https://portal.evrotrust.com/
+- type: ContactSales
+  url: https://evrotrust.com/contact-sales/
+- type: TermsOfService
+  url: https://evrotrust.com/website-terms/
+- type: PrivacyPolicy
+  url: https://evrotrust.com/privacy-policy/
+
+apis:
+- aid: evrotrust:evrotrust-all-signing-api
+  name: Evrotrust All Signing API
+  description: The All Signing API from Evrotrust — 32 operation(s) for all signing.
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - All Signing
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-all-signing-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-e-authentication-api
+  name: Evrotrust E Authentication API
+  description: The e-Authentication API from Evrotrust — 1 operation(s) for e-authentication.
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - e-Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-e-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-e-delivery-api
+  name: Evrotrust E Delivery API
+  description: The e-Delivery API from Evrotrust — 3 operation(s) for e-delivery.
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - e-Delivery
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-e-delivery-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-e-signatures-api
+  name: Evrotrust E Signatures API
+  description: The e-Signatures API from Evrotrust — 6 operation(s) for e-signatures.
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - e-Signatures
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-e-signatures-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-evrotrust-eid-registered-users-api
+  name: Evrotrust Evrotrust eID (Registered Users) API
+  description: >-
+    The Evrotrust eID (Registered Users) API from Evrotrust — 4 operation(s) for evrotrust eid (registered
+    users).
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - Evrotrust eID (Registered Users)
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-evrotrust-eid-registered-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-ident-lite-advanced-basic-api
+  name: Evrotrust Ident Lite (Advanced, Basic) API
+  description: >-
+    The Ident Lite (Advanced, Basic) API from Evrotrust — 5 operation(s) for ident lite (advanced, basic).
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - Ident Lite (Advanced, Basic)
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-ident-lite-advanced-basic-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-one-time-signatures-documents-api
+  name: Evrotrust One-time Signatures (Documents) API
+  description: >-
+    The One-time Signatures (Documents) API from Evrotrust — 20 operation(s) for one-time signatures (documents).
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - One-time Signatures (Documents)
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-one-time-signatures-documents-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-one-time-signatures-hash-api
+  name: Evrotrust One-time Signatures (Hash) API
+  description: >-
+    The One-time Signatures (Hash) API from Evrotrust — 28 operation(s) for one-time signatures (hash).
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - One-time Signatures (Hash)
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-one-time-signatures-hash-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-signing-via-app-sdk-documents-api
+  name: Evrotrust Signing via App/SDK (Documents) API
+  description: >-
+    The Signing via App/SDK (Documents) API from Evrotrust — 3 operation(s) for signing via app/sdk (documents).
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - Signing via App/SDK (Documents)
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-signing-via-app-sdk-documents-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+- aid: evrotrust:evrotrust-signing-via-app-sdk-hash-api
+  name: Evrotrust Signing via App/SDK (Hash) API
+  description: >-
+    The Signing via App/SDK (Hash) API from Evrotrust — 2 operation(s) for signing via app/sdk (hash).
+  humanURL: https://docs.evrotrust.com/reference/overview
+  baseURL: https://v.evrotrust.com/vendor
+  tags:
+  - Signing via App/SDK (Hash)
+  properties:
+  - type: OpenAPI
+    url: openapi/evrotrust-signing-via-app-sdk-hash-api-openapi.yml
+  - type: Documentation
+    url: https://docs.evrotrust.com/reference/overview
+  - type: APIReference
+    url: https://docs.evrotrust.com/reference
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-group-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-document-offline-ready-schema.json
+  - type: JSONSchema
+    url: json-schema/evrotrust-data-hash-offline-certificate-ready-schema.json
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: evrotrust.com answers plain HTTP with a 202 Robot Challenge; the rendered homepage (title "Qualified trust services for growth & compliance
+    | Evrotrust") was read and its nav/footer links supply the evrotrust.com pointers. Sibling hosts answered 200 to a plain GET.
+  evidence:
+  - url: https://evrotrust.com
+    status: 202
+    note: rendered OK in headless browser
+  - url: https://portal.evrotrust.com/
+    status: 200
+  - url: https://docs.evrotrust.com/docs
+    status: 200
+  - url: https://docs.evrotrust.com/reference
+    status: 200
+  - url: https://docs.evrotrust.com/docs/get-started
+    status: 200
+  - url: https://status.evrotrust.com/
+    status: 200
+  - url: https://help.evrotrust.com/
+    status: 200
+  - url: https://github.com/evrotrust
+    status: 200
+  - url: https://www.linkedin.com/company/evrotrust/
+    status: 200
+  - url: https://evrotrust.com/blog/
+    status: 202
+    note: challenge; linked from rendered homepage
+  - url: https://evrotrust.com/support/
+    status: 202
+    note: challenge; linked from rendered homepage
+  - url: https://evrotrust.com/privacy-policy/
+    status: 202
+    note: challenge; linked from rendered homepage
+  - url: https://evrotrust.com/website-terms/
+    status: 202
+    note: challenge; linked from rendered homepage
+x-enrichment:
+  date: '2026-10-18'
+  status: enriched
+  artifacts_added: 45
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=deepseek,regulatory=anthropic

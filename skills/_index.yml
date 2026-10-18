@@ -1,0 +1,27 @@
+generated: '2026-10-18'
+method: generated
+generator: extract-docs-artifacts.py skills (deepseek)
+source: openapi/evrotrust-api-openapi.yml
+skills:
+- file: skills/evrotrust-deliver-document.md
+  name: evrotrust-deliver-document
+  api: openapi/evrotrust-api-openapi.yml
+  operations:
+  - post_delivery-online
+  - post_delivery-receipts-status
+  - post_delivery-receipts-download
+- file: skills/evrotrust-sign-document-via-hash.md
+  name: evrotrust-sign-document-via-hash
+  api: openapi/evrotrust-api-openapi.yml
+  operations:
+  - post_document-hash-online
+  - post_document-group-hash-online
+- file: skills/evrotrust-one-time-signatures-documents.md
+  name: evrotrust-one-time-signatures-documents
+  api: openapi/evrotrust-api-openapi.yml
+  operations:
+  - post_document-doc-offline-file
+  - post_document-doc-offline
+  - post_document-doc-offline-activate
+  - post_document-doc-offline-activate-resend
+  - post_document-offline-withdraw

@@ -1,0 +1,85 @@
+generated: '2026-10-18'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/evrotrust-api-openapi.yml
+vocabulary:
+  name: Evrotrust Domain Vocabulary
+  description: 'Terms declared by Evrotrust''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-18'
+  terms:
+  - term: DataDocumentReady
+    definition: 'Object declared by the contract with fields: transactionID, status, rejectReason, automatedSignError.'
+    tags:
+    - Object
+    source: openapi/evrotrust-api-openapi.yml#/components/schemas/DataDocumentReady
+  - term: DataDocumentGroupReady
+    definition: 'Object declared by the contract with fields: transactionID, status, statusLpis, rejectReason, automatedSignError.'
+    tags:
+    - Object
+    source: openapi/evrotrust-api-openapi.yml#/components/schemas/DataDocumentGroupReady
+  - term: DataDocumentOfflineReady
+    definition: 'Object declared by the contract with fields: transactionID, status, automatedSignError.'
+    tags:
+    - Object
+    source: openapi/evrotrust-api-openapi.yml#/components/schemas/DataDocumentOfflineReady
+  - term: DataDocumentGroupOfflineReady
+    definition: 'Object declared by the contract with fields: transactionID, status, automatedSignError.'
+    tags:
+    - Object
+    source: openapi/evrotrust-api-openapi.yml#/components/schemas/DataDocumentGroupOfflineReady
+  - term: DataHashOfflineCertificateReady
+    definition: 'Object declared by the contract with fields: transactionID, status.'
+    tags:
+    - Object
+    source: openapi/evrotrust-api-openapi.yml#/components/schemas/DataHashOfflineCertificateReady
+  - term: e-Signatures
+    definition: 'Resource group in the contract; its operation POST /certificate/hash/offline/ready: One-time signing certificate hash ready.'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: e-Delivery
+    definition: 'Resource group in the contract; its operation POST /delivery/online: /delivery/online'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: e-Authentication
+    definition: 'Resource group in the contract; its operation POST /document/auth/online: /document/auth/online'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: Evrotrust eID (Registered Users)
+    definition: 'Resource group in the contract; its operation POST /document/doc/identification: /document/doc/identification'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: One-time Signatures (Documents)
+    definition: 'Resource group in the contract; its operation POST /document/doc/offline: /document/doc/offline'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: Signing via App/SDK (Documents)
+    definition: 'Resource group in the contract; its operation POST /document/doc/online: /document/doc/online'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: All Signing
+    definition: 'Resource group in the contract; its operation POST /document/download: /document/download'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: Signing via App/SDK (Hash)
+    definition: 'Resource group in the contract; its operation POST /document/group/hash/online: /document/group/hash/online'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: One-time Signatures (Hash)
+    definition: 'Resource group in the contract; its operation POST /hash/certificate/check: /hash/certificate/check'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml
+  - term: Ident Lite (Advanced, Basic)
+    definition: 'Resource group in the contract; its operation POST /onetimeidentification/getdata: /onetimeidentification/getdata'
+    tags:
+    - Resource Group
+    source: openapi/evrotrust-api-openapi.yml

@@ -1,0 +1,13 @@
+generated: '2026-10-18'
+method: searched
+source: https://docs.evrotrust.com/docs/web-sdk.md
+families:
+- name: Web SDK
+  description: Web SDK for digital identity verification
+  loader: JavaScript library
+  docs: https://docs.evrotrust.com/docs/web-sdk.md
+- name: Mobile SDK
+  description: Mobile SDK for e-Identification, e-Signatures, e-Authentication, e-Delivery
+  loader: React Native/Android/iOS libraries
+  docs: https://docs.evrotrust.com/docs/mobile-sdk.md
+note: SDKs are embeddable UI components for identity verification and signing workflows

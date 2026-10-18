@@ -1,0 +1,22 @@
+generated: '2026-10-18'
+method: searched
+generator: extract-docs-artifacts.py (deepseek)
+source: https://docs.evrotrust.com/docs/e-authentication.md
+sources:
+- https://docs.evrotrust.com/docs/e-authentication.md
+- https://docs.evrotrust.com/reference/authentication-1.md
+- https://docs.evrotrust.com/reference/authentication-1
+description: API authentication uses HMAC-SHA256 signature scheme where the request body is signed with a secret derived from an API key, and
+  the signature is sent in the Authorization header.
+schemes:
+- type: hmac
+  name: HMAC-SHA256 Authorization
+  evidence: On every request you have to set a header parameter "Authorization". Thus we proof that the request came from you and wasn’t changed
+    in transit. So you sign the exact request body with a secret derived from your API key, and send that in the Authorization header.
+  header: Authorization
+  location: header
+  how_to_obtain: 'You need below credentials from Evrotrust (technical_support@evrotrust.com): - API key (secret) - Vendor Number (your unique
+    company ID, which goes inside the JSON body)'
+docs: https://docs.evrotrust.com/docs/e-authentication.md, https://docs.evrotrust.com/reference/authentication-1.md
+note: The e-Authentication page describes user authentication flow (MFA via Evrotrust app), not API client authentication. The API authentication
+  is documented in the Authorization header page.

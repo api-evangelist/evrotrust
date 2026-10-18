@@ -1,0 +1,82 @@
+generated: '2026-10-18'
+method: searched
+source:
+- https://evrotrust.com/privacy-policy/?lang=en
+- https://evrotrust.com/compliance/
+- https://evrotrust.com/website-terms/
+fetch_note: >-
+  evrotrust.com sits behind SiteGround's sgcaptcha. A rendered fetch of /privacy-policy/ was redirected to
+  /.well-known/sgcaptcha/ (no text), while /privacy-policy/?lang=en rendered the full policy (45,514 chars).
+  The renderer reported HTTP 202 for every page, including the ones that rendered completely. /cookie-policy/
+  and /certificate-and-useful-links/ only returned the captcha and were not read.
+controller: >-
+  "Evrotrust Technologies" AD, UIC 203397356, Sofia, Bulgaria; DPO contact dpo@evrotrust.com (privacy policy, item I).
+signals:
+  data_subject_request:
+    url: https://evrotrust.com/privacy-policy/?lang=en
+    section: IX. Your rights
+    note: >-
+      The policy lists the GDPR Art. 13-21 and 77 rights (information, access, rectification, erasure, restriction,
+      notification of third parties, portability, objection, complaint to the Bulgarian CPDP). You exercise them
+      by sending a written request to the controller contact in item I (dpo@evrotrust.com). The policy covers
+      website and recruitment processing; for trust services it points to a separate privacy policy.
+    evidence:
+    - source: https://evrotrust.com/privacy-policy/?lang=en
+      http_status: 202
+      fetched: '2026-10-18'
+      quote: "As a Data subject within the meaning of the Regulation, you have the following rights, which you can exercise by making a written request to Evrotrust at the contact details specified in item I of this Policy:"
+    - source: https://evrotrust.com/privacy-policy/?lang=en
+      http_status: 202
+      fetched: '2026-10-18'
+      quote: "You shall have the right to receive the personal data, concerning you and provided by you, in a structured, commonly used, and machine-readable format and to transmit those data to another controller without hindrance on our part."
+  data_retention:
+    url: https://evrotrust.com/privacy-policy/?lang=en
+    section: VIII. Storage period of personal data
+    note: >-
+      The policy sets a retention period for each category. Correspondence is kept up to 5 years after it ends.
+      Legal holds can extend this until the proceedings close, plus up to 5 years. Data covered by statutory
+      periods is kept for those periods.
+    evidence:
+    - source: https://evrotrust.com/privacy-policy/?lang=en
+      http_status: 202
+      fetched: '2026-10-18'
+      quote: "We undertake to store your personal data only for as long as it is necessary to achieve the purposes of processing."
+    - source: https://evrotrust.com/privacy-policy/?lang=en
+      http_status: 202
+      fetched: '2026-10-18'
+      quote: "In the absence of a storage period prescribed by law, the personal data contained in correspondence with us (including, but not limited to, inquiries, requests, complaints, applications, and signals (including free text) and any other communication with us), incl. information on the processing, status and final outcome of this correspondence, will be stored for a period of up to 5 (five) years from the completion of the respective correspondence and the related relations."
+  data_residency:
+    url: https://evrotrust.com/privacy-policy/?lang=en
+    section: VII. Transfer of personal data outside the European union (EU)/ European Economic Area (EEA)
+    note: >-
+      The policy says outright that personal data stays inside the EU/EEA. Any future transfer would rely on a
+      Commission adequacy decision or on standard contractual clauses, which are available on request. This is a
+      policy statement, not a region-selection feature.
+    evidence:
+    - source: https://evrotrust.com/privacy-policy/?lang=en
+      http_status: 202
+      fetched: '2026-10-18'
+      quote: "Evrotrust does not transfer personal data outside the European Union (EU)/European Economic Area (EEA)."
+  subprocessors:
+    url: https://evrotrust.com/privacy-policy/?lang=en
+    section: VI. Categories of recipients of personal data
+    note: >-
+      The policy discloses only categories of processors (website development and maintenance, colocation data
+      centres, cloud providers). It does not name any subprocessor or publish a list. Recorded as a
+      category-level disclosure only.
+    evidence:
+    - source: https://evrotrust.com/privacy-policy/?lang=en
+      http_status: 202
+      fetched: '2026-10-18'
+      quote: "Such persons include persons providing services for the development and maintenance of the functionalities of the Website, specialized data centers for the colocation of server and network equipment, providers of cloud systems and services, etc."
+compliance_context:
+  url: https://evrotrust.com/compliance/
+  note: >-
+    This is not a catalog signal. The compliance page describes Evrotrust as an eIDAS qualified trust service
+    provider on the EU Trust List, audited by conformity assessment bodies, and lists ISO 9001, ISO/IEC 20000-1,
+    27001, 27701 and ISO 22301 certificates.
+  quote: "The issuance and maintenance of qualified certificates for e-signatures and e-seals issued by Evrotrust is certified under eIDAS Art. 24(1)(d) and listed on the EU Trust List."
+not_found_on_pages_read: >-
+  The pages read contain no incident or breach-notification commitment, no AI transparency statement, no
+  accessibility conformance statement, no Global Privacy Control handling, and no exit-assistance terms
+  (the word "breach" does not appear in the privacy policy at all).

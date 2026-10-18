@@ -1,0 +1,16 @@
+generated: '2026-10-18'
+method: searched
+source: https://status.evrotrust.com/
+versioning:
+  scheme: null
+  current_version: null
+  policy: null
+deprecation:
+  policy: null
+  sunset_header: null
+sla:
+  availability: null
+  support_hours: null
+status_page: https://status.evrotrust.com/
+deprecated_operations: []
+note: Status page found but no versioning or deprecation policy documented

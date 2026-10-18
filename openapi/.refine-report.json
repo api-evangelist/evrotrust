@@ -1,0 +1,32 @@
+{
+  "provider": "evrotrust",
+  "sources": [
+    "evrotrust-api-openapi.yml"
+  ],
+  "outputs": [
+    "evrotrust-all-signing-api-openapi.yml",
+    "evrotrust-evrotrust-eid-registered-users-api-openapi.yml",
+    "evrotrust-ident-lite-advanced-basic-api-openapi.yml",
+    "evrotrust-one-time-signatures-documents-api-openapi.yml",
+    "evrotrust-one-time-signatures-hash-api-openapi.yml",
+    "evrotrust-signing-via-app-sdk-documents-api-openapi.yml",
+    "evrotrust-signing-via-app-sdk-hash-api-openapi.yml",
+    "evrotrust-e-authentication-api-openapi.yml",
+    "evrotrust-e-delivery-api-openapi.yml",
+    "evrotrust-e-signatures-api-openapi.yml"
+  ],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
+  "errors": [],
+  "warnings": [
+    "evrotrust-api-openapi.yml: previously refined output kept for 104 operation(s) no archived document covers (e.g. /certificate/hash/offline/ready post, /delivery/online post, /delivery/receipts/download post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "evrotrust-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: evrotrust-api-openapi.yml",
+    "apis.yml register: written (+10 apis, 10 total)"
+  ],
+  "skipped": []
+}

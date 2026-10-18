@@ -1,0 +1,38 @@
+generated: '2026-10-18'
+method: probed
+status: gated
+source: https://docs.evrotrust.com/mcp
+server:
+  name: Evrotrust documentation MCP endpoint
+  url: https://docs.evrotrust.com/mcp
+  host_platform: ReadMe (docs.evrotrust.com is a ReadMe-hosted docs site)
+auth:
+  type: bearer
+  evidence: 'POST initialize -> HTTP 401 {"code":-32001,"message":"Authorization required"}; WWW-Authenticate: Bearer
+    realm="mcp". /.well-known/oauth-protected-resource, /.well-known/oauth-protected-resource/mcp and /.well-known/oauth-authorization-server
+    on docs.evrotrust.com all 404.'
+tool_count: null
+tools: []
+probes:
+- url: https://docs.evrotrust.com/mcp
+  method: GET
+  status: 200
+  body: This URL can only be accessed with a MCP client.
+- url: https://docs.evrotrust.com/mcp
+  method: POST initialize
+  status: 401
+  body: Authorization required (JSON-RPC -32001)
+- url: https://docs.evrotrust.com/.well-known/mcp.json
+  status: 404
+- url: https://docs.evrotrust.com/AGENTS.md
+  status: 404
+notes: A live MCP endpoint answers on the Evrotrust docs host, but initialize is refused without a Bearer token
+  and no OAuth discovery metadata is published, so the tool list could not be read. Evrotrust publishes no MCP documentation
+  (docs llms.txt index has no MCP page) and no documented tool names; a web search found no Evrotrust MCP server.
+  The endpoint appears to be the docs platform (ReadMe) MCP feature serving the documentation, not a Vendor API
+  execution server. No tool names are recorded because none were observed.
+deployment:
+  mode: remote
+  endpoint: https://docs.evrotrust.com/mcp
+  auth: unknown
+  verified: probed

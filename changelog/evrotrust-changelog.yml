@@ -1,0 +1,51 @@
+generated: '2026-10-18'
+method: derived
+source: https://evrotrust.com/release-notes/
+scheme: semantic
+current_version: 1.0.22
+entries:
+- version: 26.3.0
+  date: '2026-08-24'
+  breaking: false
+  highlights: []
+- version: 26.2.1
+  date: '2026-05-21'
+  breaking: false
+  highlights: []
+- version: 26.1.0
+  date: '2026-01-09'
+  breaking: false
+  highlights: []
+- version: 25.5.0
+  date: '2025-12-09'
+  breaking: false
+  highlights: []
+- version: 25.4.0
+  date: '2025-10-22'
+  breaking: false
+  highlights: []
+- version: 25.3.0
+  date: '2025-08-18'
+  breaking: false
+  highlights: []
+- version: 25.2.0
+  date: '2025-07-04'
+  breaking: false
+  highlights: []
+- version: 25.1.0
+  date: '2025-06-05'
+  breaking: false
+  highlights: []
+- version: 24.7.0
+  date: '2025-04-23'
+  breaking: false
+  highlights: []
+- version: 24.6.0
+  date: '2024-12-12'
+  breaking: false
+  highlights: []
+- version: 24.5.0
+  date: '2024-10-17'
+  breaking: false
+  highlights: []
+note: 'Release notes extracted from https://evrotrust.com/release-notes/. Note: API version (1.0.22) differs from product release versions.'

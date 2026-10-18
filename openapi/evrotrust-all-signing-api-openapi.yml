@@ -1,0 +1,2499 @@
+openapi: 3.2.0
+info:
+  description: This is Evrotrust Vendor callback server API
+  version: 1.0.22
+  title: Evrotrust All Signing API
+  contact:
+    name: Evrotrust
+    email: technical_support@evrotrust.com
+servers:
+- url: https://api.sandbox.evrotrust.com/vendor
+  description: Testing
+- url: https://v.evrotrust.com/vendor
+  description: Production
+tags:
+- name: All Signing
+paths:
+  /document/download:
+    post:
+      description: /document/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download File
+      operationId: post_document-download
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - shell
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/download-1:
+    post:
+      description: /document/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download File
+      operationId: post_document-download-1
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - shell
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/download-2:
+    post:
+      description: /document/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download File
+      operationId: post_document-download-2
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - shell
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/download-3:
+    post:
+      description: /document/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download File
+      operationId: post_document-download-3
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - shell
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/download:
+    post:
+      description: /document/group/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      operationId: post_document-group-download
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/download-1:
+    post:
+      description: /document/group/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      operationId: post_document-group-download-1
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/download-2:
+    post:
+      description: /document/group/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      operationId: post_document-group-download-2
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/download-3:
+    post:
+      description: /document/group/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      operationId: post_document-group-download-3
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/download-3-1:
+    post:
+      description: /document/group/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      operationId: post_document-group-download-3-1
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/status:
+    post:
+      description: /document/group/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_document-group-status
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/status-1:
+    post:
+      description: /document/group/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_document-group-status-1
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/status-2:
+    post:
+      description: /document/group/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_document-group-status-2
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/status-3:
+    post:
+      description: /document/group/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_document-group-status-3
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/status-4:
+    post:
+      description: /document/group/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_document-group-status-4
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/status-5:
+    post:
+      description: /document/group/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_document-group-status-5
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/group/terms/offline/download:
+    post:
+      description: ''
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transactionID:
+                  type: string
+                vendorNumber:
+                  type: string
+              required:
+              - vendorNumber
+              - transactionID
+            examples:
+              default:
+                summary: Example request
+                value:
+                  transactionID: a1b2c3d4-0000-0000-0000-000000000000
+                  vendorNumber: YOUR_VENDOR_NUMBER
+      summary: Download Signed Terms from Group
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/group/terms/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/group/terms/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - shell
+      operationId: post_document-group-terms-offline-download
+      tags:
+      - All Signing
+  /document/status:
+    post:
+      description: /document/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status File
+      operationId: post_document-status
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/status-1:
+    post:
+      description: /document/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status File
+      operationId: post_document-status-1
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/status-2:
+    post:
+      description: /document/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status File
+      operationId: post_document-status-2
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/status-3:
+    post:
+      description: /document/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status File
+      operationId: post_document-status-3
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/status-4:
+    post:
+      description: /document/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status File
+      operationId: post_document-status-4
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/status-5:
+    post:
+      description: /document/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status File
+      operationId: post_document-status-5
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/status'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/status';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - php
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/terms/offline/download:
+    post:
+      description: ''
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transactionID:
+                  type: string
+                vendorNumber:
+                  type: string
+              required:
+              - vendorNumber
+              - transactionID
+            examples:
+              default:
+                summary: Example request
+                value:
+                  transactionID: a1b2c3d4-0000-0000-0000-000000000000
+                  vendorNumber: YOUR_VENDOR_NUMBER
+      summary: Download Signed Terms
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/terms/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/terms/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+        samples-languages:
+        - shell
+      operationId: post_document-terms-offline-download
+      tags:
+      - All Signing
+  /document/thread/status:
+    post:
+      description: /document/thread/status
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '438':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status Thread
+      operationId: post_document-thread-status
+      tags:
+      - All Signing
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/thread/status'\n\nbody = \"\"\"{\n  \"threadID\": \"f9e8d7c6-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/thread/status';\n\nconst body = JSON.stringify({\n  \"threadID\": \"f9e8d7c6-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"threadID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /document/threads/status:
+    post:
+      description: /document/threads/status
+      responses:
+        '200':
+          description: Document status
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Check Status Multiple Threads
+      operationId: post_document-threads-status
+      tags:
+      - All Signing
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/document/threads/status'\n\nbody = \"\"\"{\n  \"threadIDs\": [\n    \"f9e8d7c6-0000-0000-0000-000000000000\"\n  ],\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/document/threads/status';\n\nconst body = JSON.stringify({\n  \"threadIDs\": [\n    \"f9e8d7c6-0000-0000-0000-000000000000\"\n  ],\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"threadIDs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /hash/group/offline/download:
+    post:
+      description: /hash/group/offline/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group Hash
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/hash/group/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/hash/group/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_hash-offline-download-1
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /hash/group/offline/download-1:
+    post:
+      description: /hash/group/offline/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group Hash
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/hash/group/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/hash/group/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_hash-offline-download-1-1
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /hash/group/offline/download-2:
+    post:
+      description: /hash/group/offline/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group Hash
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/hash/group/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/hash/group/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_hash-offline-download-1-2
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /hash/group/offline/download-2-1:
+    post:
+      description: /hash/group/offline/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Group Hash
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/hash/group/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/hash/group/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_hash-offline-download-1-2-1
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /hash/offline/download:
+    post:
+      description: /hash/offline/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Hash
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/hash/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/hash/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_hash-offline-download
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /hash/offline/download-1:
+    post:
+      description: /hash/offline/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Hash
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/hash/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/hash/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_hash-offline-download-2
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+  /hash/offline/download-1-1:
+    post:
+      description: /hash/offline/download
+      responses:
+        '200':
+          description: File downloaded
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+        '443':
+          description: Document not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                required:
+                - name
+      parameters:
+      - in: header
+        name: Authorization
+        schema:
+          type: string
+        required: true
+        description: Authorization value.
+      summary: Download Hash
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: "import hashlib, hmac, requests\n\nVENDOR_API_KEY = 'xxx'\nURL = 'https://api.sandbox.evrotrust.com/vendor/hash/offline/download'\n\nbody = \"\"\"{\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n}\"\"\"\n\n# Authorization: HMAC-SHA256 over the exact body bytes,\n# keyed by the raw SHA-256 digest of the API key\nkey = hashlib.sha256(VENDOR_API_KEY.encode()).digest()\nauthorization = hmac.new(key, body.encode('utf-8'), hashlib.sha256).hexdigest()\n\nresponse = requests.post(\n    URL,\n    headers={'Content-Type': 'application/json',\n             'Authorization': authorization},\n    data=body.encode('utf-8'),\n    timeout=30,\n)\n\nprint(response.status_code, response.text)\n"
+        - language: node
+          name: Node.js
+          code: "const crypto = require('crypto');\n\nconst VENDOR_API_KEY = 'xxx';\nconst URL = 'https://api.sandbox.evrotrust.com/vendor/hash/offline/download';\n\nconst body = JSON.stringify({\n  \"transactionID\": \"a1b2c3d4-0000-0000-0000-000000000000\",\n  \"vendorNumber\": \"YOUR_VENDOR_NUMBER\"\n});\n\n// Authorization: HMAC-SHA256 over the body, keyed by the raw SHA-256 of the API key\nconst key = crypto.createHash('sha256').update(VENDOR_API_KEY).digest();\nconst authorization = crypto.createHmac('sha256', key).update(body).digest('hex');\n\nconst response = await fetch(URL, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    Authorization: authorization,\n  },\n  body,\n});\n\nconsole.log(response.status, await response.text());\n"
+      operationId: post_hash-offline-download-2-1
+      tags:
+      - All Signing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "{\n  \"transactionID\": \"string\",\n  \"vendorNumber\": \"string\"\n}"
+              required:
+              - name
+x-provenance:
+  method: searched
+  source: https://docs.evrotrust.com/reference
+  harvested: '2026-10-18'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://docs.evrotrust.com/reference/delivery-online.md
+  - https://docs.evrotrust.com/reference/delivery-receipts-download.md
+  - https://docs.evrotrust.com/reference/delivery-receipts-status.md
+  - https://docs.evrotrust.com/reference/document-auth-online.md
+  - https://docs.evrotrust.com/reference/document-doc-identification-lpis.md
+  - https://docs.evrotrust.com/reference/document-doc-identification.md
+  - https://docs.evrotrust.com/reference/document-doc-offline-activate-resend.md
+  - https://docs.evrotrust.com/reference/document-doc-offline-activate.md
+  - https://docs.evrotrust.com/reference/document-doc-offline-file.md
+  - https://docs.evrotrust.com/reference/document-doc-offline-refid.md
+  - https://docs.evrotrust.com/reference/document-doc-offline.md
+  - https://docs.evrotrust.com/reference/document-doc-online.md
+  - https://docs.evrotrust.com/reference/document-group-download.md
+  - https://docs.evrotrust.com/reference/document-group-hash-online.md
+  - https://docs.evrotrust.com/reference/document-group-offline-activate-resend.md
+  - https://docs.evrotrust.com/reference/document-group-offline-activate.md
+  - https://docs.evrotrust.com/reference/document-group-offline-file.md
+  - https://docs.evrotrust.com/reference/document-group-offline-refid.md
+  - https://docs.evrotrust.com/reference/document-group-offline.md
+  - https://docs.evrotrust.com/reference/document-group-online.md
+  - https://docs.evrotrust.com/reference/document-group-status.md
+  - https://docs.evrotrust.com/reference/document-group-terms-offline-download.md
+  - https://docs.evrotrust.com/reference/document-hash-online.md
+  - https://docs.evrotrust.com/reference/document-offline-withdraw.md
+  - https://docs.evrotrust.com/reference/document-status.md
+  - https://docs.evrotrust.com/reference/document-terms-offline-download.md
+  - https://docs.evrotrust.com/reference/document-thread-status.md
+  - https://docs.evrotrust.com/reference/document-threads-status.md
+  - https://docs.evrotrust.com/reference/document-withdraw.md
+  - https://docs.evrotrust.com/reference/hash-certificate-check.md
+  - https://docs.evrotrust.com/reference/hash-certificate-get.md
+  - https://docs.evrotrust.com/reference/hash-group-certificate-check.md
+  - https://docs.evrotrust.com/reference/hash-group-certificate-get.md
+  - https://docs.evrotrust.com/reference/hash-group-offline-activate-resend.md
+  - https://docs.evrotrust.com/reference/hash-group-offline-activate.md
+  - https://docs.evrotrust.com/reference/hash-group-offline-check.md
+  - https://docs.evrotrust.com/reference/hash-group-offline-file-init.md
+  - https://docs.evrotrust.com/reference/hash-group-offline-init.md
+  - https://docs.evrotrust.com/reference/hash-group-offline-send.md
+  - https://docs.evrotrust.com/reference/hash-offline-activate-resend.md
+  - https://docs.evrotrust.com/reference/hash-offline-activate.md
+  - https://docs.evrotrust.com/reference/hash-offline-check.md
+  - https://docs.evrotrust.com/reference/hash-offline-download.md
+  - https://docs.evrotrust.com/reference/hash-offline-file-init.md
+  - https://docs.evrotrust.com/reference/hash-offline-init.md
+  - https://docs.evrotrust.com/reference/hash-offline-send.md
+  - https://docs.evrotrust.com/reference/onetimeidentification-getdata.md
+  - https://docs.evrotrust.com/reference/onetimeidentification-mobilesdk-getdatajwt.md
+  - https://docs.evrotrust.com/reference/onetimeidentification-mobilesdk-status.md
+  - https://docs.evrotrust.com/reference/onetimeidentification-status.md
+  - https://docs.evrotrust.com/reference/onetimeidentification-validaterefid.md
+  - https://docs.evrotrust.com/reference/post_document-doc-offline-activate-1.md
+  - https://docs.evrotrust.com/reference/post_document-doc-offline-activate-resend-1.md
+  - https://docs.evrotrust.com/reference/post_document-download-1.md
+  - https://docs.evrotrust.com/reference/post_document-download-2.md
+  - https://docs.evrotrust.com/reference/post_document-download-3.md
+  - https://docs.evrotrust.com/reference/post_document-download.md
+  - https://docs.evrotrust.com/reference/post_document-group-download-1.md
+  - https://docs.evrotrust.com/reference/post_document-group-download-2.md
+  - https://docs.evrotrust.com/reference/post_document-group-download-3-1.md
+  - https://docs.evrotrust.com/reference/post_document-group-download-3.md
+  - https://docs.evrotrust.com/reference/post_document-group-offline-activate-1.md
+  - https://docs.evrotrust.com/reference/post_document-group-offline-activate-resend-1.md
+  - https://docs.evrotrust.com/reference/post_document-group-status-1.md
+  - https://docs.evrotrust.com/reference/post_document-group-status-2.md
+  - https://docs.evrotrust.com/reference/post_document-group-status-3.md
+  - https://docs.evrotrust.com/reference/post_document-group-status-4.md
+  - https://docs.evrotrust.com/reference/post_document-group-status-5.md
+  - https://docs.evrotrust.com/reference/post_document-offline-withdraw-1-1-1-1-1.md
+  - https://docs.evrotrust.com/reference/post_document-offline-withdraw-1-1-1-1.md
+  - https://docs.evrotrust.com/reference/post_document-offline-withdraw-1-1-1.md
+  - https://docs.evrotrust.com/reference/post_document-offline-withdraw-1-1.md
+  - https://docs.evrotrust.com/reference/post_document-offline-withdraw-1.md
+  - https://docs.evrotrust.com/reference/post_document-status-1.md
+  - https://docs.evrotrust.com/reference/post_document-status-2.md
+  - https://docs.evrotrust.com/reference/post_document-status-3.md
+  - https://docs.evrotrust.com/reference/post_document-status-4.md
+  - https://docs.evrotrust.com/reference/post_document-status-5.md
+  - https://docs.evrotrust.com/reference/post_hash-certificate-check-1.md
+  - https://docs.evrotrust.com/reference/post_hash-certificate-get-1.md
+  - https://docs.evrotrust.com/reference/post_hash-group-certificate-check-1.md
+  - https://docs.evrotrust.com/reference/post_hash-group-certificate-get-1.md
+  - https://docs.evrotrust.com/reference/post_hash-group-offline-activate-1.md
+  - https://docs.evrotrust.com/reference/post_hash-group-offline-activate-resend-1.md
+  - https://docs.evrotrust.com/reference/post_hash-group-offline-check-1.md
+  - https://docs.evrotrust.com/reference/post_hash-group-offline-send-1.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-activate-1.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-activate-resend-1.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-check-1.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-download-1-1.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-download-1-2-1.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-download-1-2.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-download-1.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-download-2-1.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-download-2.md
+  - https://docs.evrotrust.com/reference/post_hash-offline-send-1.md
+  - https://docs.evrotrust.com/reference/readydocument.md
+  - https://docs.evrotrust.com/reference/readydocumentoffline.md
+  - https://docs.evrotrust.com/reference/readygroupdocument.md
+  - https://docs.evrotrust.com/reference/readygroupofflinedocument.md
+  - https://docs.evrotrust.com/reference/readyofflinehashcertificate.md
+  - https://docs.evrotrust.com/reference/user-certificate-get.md
+  - https://docs.evrotrust.com/reference/user-check-extended.md
+  - https://docs.evrotrust.com/reference/user-identification-status.md
+  merge:
+    pages: 104
+    deduped: 0
+    conflicts_kept_first: 0

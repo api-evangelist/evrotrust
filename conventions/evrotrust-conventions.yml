@@ -1,0 +1,26 @@
+generated: '2026-10-18'
+method: derived
+source: openapi/evrotrust-api-openapi.yml
+auth_style: hmac
+idempotency:
+  coverage: none
+  mechanism: null
+  header: null
+  retention: null
+pagination:
+  style: none
+  parameters: []
+  response_fields: []
+field_expansion: null
+metadata: null
+request_id_tracing: null
+versioning: null
+error_envelope:
+  shape: custom
+  media_type: application/json
+rate_limit_signaling: null
+reversibility:
+  operations: []
+  window: null
+  docs: null
+note: API uses HMAC-SHA256 authentication, no idempotency or pagination mechanisms documented

@@ -1,0 +1,41 @@
+{
+  "@context": {
+    "@vocab": "https://evrotrust.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "evrotrust": "https://evrotrust.com/schema#",
+    "DataDocumentReady": "evrotrust:DataDocumentReady",
+    "transactionID": {
+      "@id": "evrotrust:transactionID",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "evrotrust:status",
+      "@type": "xsd:integer"
+    },
+    "rejectReason": {
+      "@id": "evrotrust:rejectReason",
+      "@type": "xsd:string"
+    },
+    "automatedSignError": {
+      "@id": "evrotrust:automatedSignError",
+      "@type": "xsd:string"
+    },
+    "DataDocumentGroupReady": "evrotrust:DataDocumentGroupReady",
+    "statusLpis": {
+      "@id": "evrotrust:statusLpis",
+      "@type": "xsd:string"
+    },
+    "DataDocumentOfflineReady": "evrotrust:DataDocumentOfflineReady",
+    "DataDocumentGroupOfflineReady": "evrotrust:DataDocumentGroupOfflineReady",
+    "DataHashOfflineCertificateReady": "evrotrust:DataHashOfflineCertificateReady"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Evrotrust API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Evrotrust's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-18) from openapi/evrotrust-api-openapi.yml.",
+  "dcterms:created": "2026-10-18",
+  "dcterms:source": [
+    "openapi/evrotrust-api-openapi.yml"
+  ]
+}

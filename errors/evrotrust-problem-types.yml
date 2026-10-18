@@ -1,0 +1,174 @@
+generated: '2026-10-18'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/evrotrust-api-openapi.yml
+format: custom
+envelope:
+  media_type: application/json
+  schema: null
+coverage:
+  operations: 104
+  statuses_declared: 23
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad Request
+  operations: 98
+  media_types:
+  - application/json
+  schema: null
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 98
+  media_types:
+  - application/json
+  schema: null
+- status: 432
+  title: null
+  description: Wrong activation code
+  operations: 8
+  media_types:
+  - application/json
+  schema: null
+- status: 438
+  title: null
+  description: User not found
+  operations: 24
+  media_types:
+  - application/json
+  schema: null
+- status: 439
+  title: null
+  description: User not found
+  operations: 2
+  media_types:
+  - application/json
+  schema: null
+- status: 442
+  title: null
+  description: Certificate not found
+  operations: 6
+  media_types:
+  - application/json
+  schema: null
+- status: 443
+  title: null
+  description: Document not found
+  operations: 70
+  media_types:
+  - application/json
+  schema: null
+- status: 448
+  title: null
+  description: Expired activation code
+  operations: 8
+  media_types:
+  - application/json
+  schema: null
+- status: 449
+  title: null
+  description: User data is not valid
+  operations: 24
+  media_types:
+  - application/json
+  schema: null
+- status: 450
+  title: null
+  description: File exceeds max allowed file size
+  operations: 8
+  media_types:
+  - application/json
+  schema: null
+- status: 454
+  title: null
+  description: Incorrect coverage
+  operations: 14
+  media_types:
+  - application/json
+  schema: null
+- status: 457
+  title: null
+  description: Not supported file types
+  operations: 10
+  media_types:
+  - application/json
+  schema: null
+- status: 468
+  title: null
+  description: Certificate expired
+  operations: 12
+  media_types:
+  - application/json
+  schema: null
+- status: 469
+  title: null
+  description: Request cannot be processed. Register check not successful.
+  operations: 20
+  media_types:
+  - application/json
+  schema: null
+- status: 475
+  title: null
+  description: Receipts cannot be generated
+  operations: 1
+  media_types:
+  - application/json
+  schema: null
+- status: 477
+  title: null
+  description: Activation code has not been sent. Try again in 60 seconds.
+  operations: 4
+  media_types:
+  - application/json
+  schema: null
+- status: 479
+  title: null
+  description: Person must be at least 18 years old.
+  operations: 10
+  media_types:
+  - application/json
+  schema: null
+- status: 484
+  title: null
+  description: Data does not match
+  operations: 2
+  media_types:
+  - application/json
+  schema: null
+- status: 485
+  title: null
+  description: Reference ID not valid
+  operations: 5
+  media_types:
+  - application/json
+  schema: null
+- status: 487
+  title: null
+  description: Reference ID expired
+  operations: 3
+  media_types:
+  - application/json
+  schema: null
+- status: 489
+  title: null
+  description: Signing is in progress with previous activation code
+  operations: 8
+  media_types:
+  - application/json
+  schema: null
+- status: 490
+  title: null
+  description: Incorrect document status (expired, withdrawn, etc.)
+  operations: 8
+  media_types:
+  - application/json
+  schema: null
+- status: 497
+  title: null
+  description: No user data for reference ID
+  operations: 1
+  media_types:
+  - application/json
+  schema: null

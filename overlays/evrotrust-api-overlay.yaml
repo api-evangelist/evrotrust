@@ -1,0 +1,210 @@
+overlay: 1.0.0
+info:
+  title: Evrotrust API enhancements
+  version: 1.0.0
+extends: openapi/evrotrust-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-api-evangelist:
+      provider: evrotrust
+      docs: https://docs.evrotrust.com/reference/overview
+      llms_txt: https://docs.evrotrust.com/llms.txt
+      sandbox_server: https://api.sandbox.evrotrust.com/vendor
+- target: $.paths['/document/ready'].post
+  update:
+    x-callback: true
+    x-direction: evrotrust-to-vendor
+    x-note: Per its own description this is a status callback Evrotrust sends to the vendor's callback URL, not an endpoint the vendor calls.
+- target: $.paths['/document/group/ready'].post
+  update:
+    x-callback: true
+    x-direction: evrotrust-to-vendor
+    x-note: Per its own description this is a status callback Evrotrust sends to the vendor's callback URL, not an endpoint the vendor calls.
+- target: $.paths['/document/offline/ready'].post
+  update:
+    x-callback: true
+    x-direction: evrotrust-to-vendor
+    x-note: Per its own description this is a status callback Evrotrust sends to the vendor's callback URL, not an endpoint the vendor calls.
+- target: $.paths['/document/group/offline/ready'].post
+  update:
+    x-callback: true
+    x-direction: evrotrust-to-vendor
+    x-note: Per its own description this is a status callback Evrotrust sends to the vendor's callback URL, not an endpoint the vendor calls.
+- target: $.paths['/certificate/hash/offline/ready'].post
+  update:
+    x-callback: true
+    x-direction: evrotrust-to-vendor
+    x-note: Per its own description this is a status callback Evrotrust sends to the vendor's callback URL, not an endpoint the vendor calls.
+- target: $.paths['/document/doc/offline/activate-1'].post
+  update:
+    x-variant-of: /document/doc/offline/activate
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/doc/offline/activate/resend-1'].post
+  update:
+    x-variant-of: /document/doc/offline/activate/resend
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/download-1'].post
+  update:
+    x-variant-of: /document/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/download-2'].post
+  update:
+    x-variant-of: /document/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/download-3'].post
+  update:
+    x-variant-of: /document/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/download-1'].post
+  update:
+    x-variant-of: /document/group/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/download-2'].post
+  update:
+    x-variant-of: /document/group/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/download-3'].post
+  update:
+    x-variant-of: /document/group/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/download-3-1'].post
+  update:
+    x-variant-of: /document/group/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/offline/activate-1'].post
+  update:
+    x-variant-of: /document/group/offline/activate
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/offline/activate/resend-1'].post
+  update:
+    x-variant-of: /document/group/offline/activate/resend
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/status-1'].post
+  update:
+    x-variant-of: /document/group/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/status-2'].post
+  update:
+    x-variant-of: /document/group/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/status-3'].post
+  update:
+    x-variant-of: /document/group/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/status-4'].post
+  update:
+    x-variant-of: /document/group/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/group/status-5'].post
+  update:
+    x-variant-of: /document/group/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/offline/withdraw-1'].post
+  update:
+    x-variant-of: /document/offline/withdraw
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/offline/withdraw-1-1'].post
+  update:
+    x-variant-of: /document/offline/withdraw
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/offline/withdraw-1-1-1'].post
+  update:
+    x-variant-of: /document/offline/withdraw
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/offline/withdraw-1-1-1-1'].post
+  update:
+    x-variant-of: /document/offline/withdraw
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/offline/withdraw-1-1-1-1-1'].post
+  update:
+    x-variant-of: /document/offline/withdraw
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/status-1'].post
+  update:
+    x-variant-of: /document/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/status-2'].post
+  update:
+    x-variant-of: /document/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/status-3'].post
+  update:
+    x-variant-of: /document/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/status-4'].post
+  update:
+    x-variant-of: /document/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/document/status-5'].post
+  update:
+    x-variant-of: /document/status
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/certificate/check-1'].post
+  update:
+    x-variant-of: /hash/certificate/check
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/certificate/get-1'].post
+  update:
+    x-variant-of: /hash/certificate/get
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/certificate/check-1'].post
+  update:
+    x-variant-of: /hash/group/certificate/check
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/certificate/get-1'].post
+  update:
+    x-variant-of: /hash/group/certificate/get
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/offline/activate-1'].post
+  update:
+    x-variant-of: /hash/group/offline/activate
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/offline/activate/resend-1'].post
+  update:
+    x-variant-of: /hash/group/offline/activate/resend
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/offline/check-1'].post
+  update:
+    x-variant-of: /hash/group/offline/check
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/offline/download-1'].post
+  update:
+    x-variant-of: /hash/group/offline/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/offline/download-2'].post
+  update:
+    x-variant-of: /hash/group/offline/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/offline/download-2-1'].post
+  update:
+    x-variant-of: /hash/group/offline/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/group/offline/send-1'].post
+  update:
+    x-variant-of: /hash/group/offline/send
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/offline/activate-1'].post
+  update:
+    x-variant-of: /hash/offline/activate
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/offline/activate/resend-1'].post
+  update:
+    x-variant-of: /hash/offline/activate/resend
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/offline/check-1'].post
+  update:
+    x-variant-of: /hash/offline/check
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/offline/download-1'].post
+  update:
+    x-variant-of: /hash/offline/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/offline/download-1-1'].post
+  update:
+    x-variant-of: /hash/offline/download
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.
+- target: $.paths['/hash/offline/send-1'].post
+  update:
+    x-variant-of: /hash/offline/send
+    x-note: Path suffix comes from the ReadMe reference page slug (one page per documented variant); the real request path is the base path.

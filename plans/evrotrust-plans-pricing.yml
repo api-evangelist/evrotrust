@@ -1,0 +1,54 @@
+generated: '2026-10-18'
+method: searched
+source: https://evrotrust.com/pricing/
+name: Evrotrust pricing
+audience: consumer
+pricing_basis: tiered-subscription
+published: true
+delivery: managed
+plans:
+- name: Free plan
+  description: Ideal for people who only sign from time to time – eGOV applications, service agreements, etc.
+  price_text: Free
+  price: 0
+  currency: EUR
+  billing_period: null
+  features:
+  - 3 free eSignatures
+  - Certificate for a qualified electronic signature (QES)
+  - A digital archive of all signed documents
+  limits: []
+- name: Plan 5
+  description: Ideal for users who regularly sign contracts, eGov applications, and more.
+  price_text: from 2.75 EUR/month
+  price: 2.75
+  currency: EUR
+  billing_period: month
+  features:
+  - 5 free eSignatures per month
+  - Certificate for a qualified electronic signature (QES)
+  - A digital archive of all signed documents
+  limits: []
+- name: Plan 100
+  description: Ideal for people who sign frequently, e.g. entrepreneurs and micro businesses.
+  price_text: from 4.99 EUR/month
+  price: 4.99
+  currency: EUR
+  billing_period: month
+  features:
+  - 100 free eSignatures per month
+  - Certificate for a qualified electronic signature (QES)
+  - A digital archive of all signed documents
+  limits: []
+- name: Business Plan
+  description: Ideal for organizations requiring access for employees, company invoicing, or system integration.
+  price_text: Custom.
+  price: "Custom"
+  currency: null
+  billing_period: null
+  features:
+  - Trust unit packages for using advanced and qualified electronic signatures
+  - Various options for electronic identification
+  - Integration via API or white-label SDK
+  limits: []
+note: Consumer pricing for individual eSignature plans found. Source page has bot protection preventing verification.

@@ -1,0 +1,185 @@
+# Evrotrust Documentation Documentation
+
+> Documentation for Evrotrust Documentation
+
+## Guides: Getting Started
+- [Overview](https://docs.evrotrust.com/docs/overview-1.md)
+
+## Guides: Key Services
+- [Evrotrust Key Services](https://docs.evrotrust.com/docs/identity-verification.md)
+- [e-Identification](https://docs.evrotrust.com/docs/identity-verification-1.md): Onboard customers remotely in less than 2 minutes.
+  - [Identity Verification Types](https://docs.evrotrust.com/docs/identity-verification-2.md)
+    - [Evrotrust eID](https://docs.evrotrust.com/docs/evrotrust-eid.md)
+    - [Evrotrust Ident Lite](https://docs.evrotrust.com/docs/evrotrust-ident-lite.md): Simplified Identity Verification.
+  - [Identity Verification Controls](https://docs.evrotrust.com/docs/verification-steps.md): Evrotrust identity verification controls across products and SDKs.
+    - [Document Verification](https://docs.evrotrust.com/docs/document.md)
+    - [Document NFC Readout](https://docs.evrotrust.com/docs/document-nfc-verification.md)
+    - [Public Register Integration](https://docs.evrotrust.com/docs/government-database-check.md): Additional identity verification control used to validate and enrich user identity data against government identity registers. Fully invisible to the end user.
+    - [Biometric Verification](https://docs.evrotrust.com/docs/biometrics.md)
+    - [Expert Review](https://docs.evrotrust.com/docs/manual-review.md)
+  - [Identity Attestation](https://docs.evrotrust.com/docs/identity-attestation.md)
+  - [eIDAS notified eID](https://docs.evrotrust.com/docs/certifications-and-regulatory-approvals.md): Evrotrust eID is officially notified under eIDAS, providing EU-wide recognition and secure cross-border access to public sector services with Substantial and High assurance levels.
+- [e-Authentication](https://docs.evrotrust.com/docs/e-authentication.md): No more username & password. Confirm login to any application with a click of a button.
+- [e-Signatures](https://docs.evrotrust.com/docs/esign.md): Comprehensive overview of electronic signature solutions including e-Seal and e-Timestamp for legally binding digital document workflows.
+  - [Signature Types & Levels](https://docs.evrotrust.com/docs/signature-types.md): Improve efficiency & customer experience with electronic signatures by Evrotrust.
+  - [Validity of Certificates](https://docs.evrotrust.com/docs/validity-of-certificates.md)
+  - [Signing workflows](https://docs.evrotrust.com/docs/integration-options.md): Evrotrust provides flexible e-signature solutions to accommodate different use cases and integration requirements.
+    - [In-App Signing](https://docs.evrotrust.com/docs/in-app-signing.md): In-app signing workflow with minimal user interaction and no SMS OTP, using either the Evrotrust mobile SDK or the standalone mobile application.
+    - [OTP eSign](https://docs.evrotrust.com/docs/otp-esign.md)
+    - [Automated Signing](https://docs.evrotrust.com/docs/automated-signing.md): Sign documents from company side automatically
+  - [Multi-Signature and Batch Signing](https://docs.evrotrust.com/docs/multi-signature-support.md)
+  - [Document vs. Hash Signing](https://docs.evrotrust.com/docs/document-vs-hash-signing.md): Understanding Document vs. Hash Signing Methods.
+- [e-Delivery](https://docs.evrotrust.com/docs/edelivery.md): EU-qualified electronic delivery service with verified identity, guaranteed receipt, and legal proof of delivery under eIDAS.
+
+## Guides: Integration Options
+- [Integration Options](https://docs.evrotrust.com/docs/overview.md): Evrotrust offers flexible frontend and backend solutions that can work independently or together
+- [Evrotrust Web SDK](https://docs.evrotrust.com/docs/web-sdk.md): Web SDK for digital identity verification
+  - [Get Started](https://docs.evrotrust.com/docs/get-started-1.md): Use it individually or combine with eSign for full digital twist.
+  - [Integration](https://docs.evrotrust.com/docs/integration.md)
+  - [Customisation Options ](https://docs.evrotrust.com/docs/customisation.md): Tailor the look and feel of your integration to match your brand identity
+- [Evrotrust Mobile SDK](https://docs.evrotrust.com/docs/mobile-sdk.md): Mobile SDK for e-Identification (all types), e-Signatures, e-Authentication, e-Delivery
+  - [Get Started](https://docs.evrotrust.com/docs/get-started.md)
+  - [Mobile SDK Workflows](https://docs.evrotrust.com/docs/customisation-options.md): Explore Evrotrust eID and Ident Lite Workflow Diagrams.
+  - [Android SDK](https://docs.evrotrust.com/docs/android-sdk.md)
+  - [iOS SDK](https://docs.evrotrust.com/docs/ios-sdk.md)
+- [Evrotrust App](https://docs.evrotrust.com/docs/evrotrust-app.md): Enable Remote Customer Onboarding with Evrotrust.
+- [OTP eSign](https://docs.evrotrust.com/docs/no-frontend-integration.md): SMS-Only OTP Signing.
+  - [OTP Workflow](https://docs.evrotrust.com/docs/otp-workflow.md)
+  - [Registration Authority](https://docs.evrotrust.com/docs/registration-authority.md): Choose Your Identity Verification Method.
+    - [Identity Verification by Evrotrust](https://docs.evrotrust.com/docs/identity-verification-by-evrotrust.md)
+- [Corporate Web Portal](https://docs.evrotrust.com/docs/web-portal.md): Digitalize Your Business Workflows Today.
+  - [Workflows](https://docs.evrotrust.com/docs/workflow.md)
+
+## Guides: Platform
+- [Glossary](https://docs.evrotrust.com/docs/glossary.md): Get familiar with all abreviations used:
+- [Cloud-Based Deployment](https://docs.evrotrust.com/docs/security-compliance.md)
+- [Regulatory Compliance ](https://docs.evrotrust.com/docs/regulatory-and-compliance.md)
+
+## API Reference: Evrotrust API
+- [Getting Started](https://docs.evrotrust.com/reference/overview.md): Important URLs and starting setup steps
+  - [Authorization header](https://docs.evrotrust.com/reference/authentication-1.md): Needed for each API request
+  - [Generate key pair](https://docs.evrotrust.com/reference/generate-key-pair.md): publicKey parameter for requests for eIdentification and eSigning
+  - [Decrypt Downloaded Documents](https://docs.evrotrust.com/reference/decrypting-downloaded-documents.md): Related to document/download result
+- [Mobile app & SDK full eID](https://docs.evrotrust.com/reference/evrotrust-eid-registered-users.md): Applies for integrations using flows with user's Evrotrust profile
+  - [Check User Status](https://docs.evrotrust.com/reference/user-check-extended.md): user/check/extended
+  - [eID Get User Data](https://docs.evrotrust.com/reference/document-doc-identification.md): /document/doc/identification
+  - [eSign Single File](https://docs.evrotrust.com/reference/document-doc-online.md): /document/doc/online
+  - [ Check Status File](https://docs.evrotrust.com/reference/post_document-status-1.md): /document/status
+  - [Download File](https://docs.evrotrust.com/reference/post_document-download-1.md): /document/download
+  - [eSign Group](https://docs.evrotrust.com/reference/document-group-online.md): /document/group/online
+  - [Check Status Group](https://docs.evrotrust.com/reference/post_document-group-status-1.md): /document/group/status
+  - [Download Group](https://docs.evrotrust.com/reference/post_document-group-download-1.md): /document/group/download
+  - [Withdraw File](https://docs.evrotrust.com/reference/document-withdraw.md): /document/withdraw
+  - [eAuthentication](https://docs.evrotrust.com/reference/document-auth-online.md): /document/auth/online
+- [Web SDK](https://docs.evrotrust.com/reference/ident-lite-advanced-basic.md)
+  - [Validate refID](https://docs.evrotrust.com/reference/onetimeidentification-validaterefid.md): /onetimeidentification/validaterefid
+  - [Check Status ](https://docs.evrotrust.com/reference/onetimeidentification-status.md): /onetimeidentification/status
+  - [Get User Data](https://docs.evrotrust.com/reference/onetimeidentification-getdata.md): /onetimeidentification/getdata
+  - [OTP eSign (refID)](https://docs.evrotrust.com/reference/document-doc-offline-refid.md): /document/doc/offline/refid
+  - [Check Status File](https://docs.evrotrust.com/reference/post_document-status-2.md): /document/status
+  - [Download File](https://docs.evrotrust.com/reference/post_document-download-2.md): /document/download
+  - [Group OTP eSign (refID)](https://docs.evrotrust.com/reference/document-group-offline-refid.md): /document/group/offline/refid
+  - [Check Status Group](https://docs.evrotrust.com/reference/post_document-group-status-2.md): /document/group/status
+  - [Download Group](https://docs.evrotrust.com/reference/post_document-group-download-2.md): /document/group/download
+- [Mobile SDK Onetime eID](https://docs.evrotrust.com/reference/copy-of-web-sdk.md): Covers integrations for Enhanced scenario
+  - [mobileSDK: Check eID Status](https://docs.evrotrust.com/reference/onetimeidentification-mobilesdk-status.md): /onetimeidentification/mobilesdk/status
+  - [mobileSDK: Get User Data](https://docs.evrotrust.com/reference/onetimeidentification-mobilesdk-getdatajwt.md): /onetimeidentification/mobilesdk/getdatajwt
+- [eSign Hash (App)](https://docs.evrotrust.com/reference/signing-via-appsdk-hash.md)
+  - [Get Certificate](https://docs.evrotrust.com/reference/user-certificate-get.md): /user/certificate/get
+  - [eSign Hash](https://docs.evrotrust.com/reference/document-hash-online.md): /document/hash/online
+  - [Check Status File](https://docs.evrotrust.com/reference/post_document-status-3.md): /document/status
+  - [Download Hash](https://docs.evrotrust.com/reference/post_hash-offline-download-2.md): /hash/offline/download
+  - [eSign Group Hash](https://docs.evrotrust.com/reference/document-group-hash-online.md): /document/group/hash/online
+  - [Check Status Group](https://docs.evrotrust.com/reference/post_document-group-status-3.md): /document/group/status
+  - [Download Group Hash](https://docs.evrotrust.com/reference/post_hash-offline-download-1-1.md): /hash/group/offline/download
+- [OTP eSign Hash (File)](https://docs.evrotrust.com/reference/copy-of-otp-esign-hash-with-agent.md)
+  - [OTP Hash file init](https://docs.evrotrust.com/reference/hash-offline-file-init.md): /hash/offline/file/init
+  - [Activate Certificate](https://docs.evrotrust.com/reference/post_hash-offline-activate-1.md): /hash/offline/activate
+  - [Resend SMS](https://docs.evrotrust.com/reference/post_hash-offline-activate-resend-1.md): /hash/offline/activate/resend
+  - [Check Cert Status](https://docs.evrotrust.com/reference/post_hash-certificate-check-1.md): /hash/certificate/check
+  - [Get Certificate](https://docs.evrotrust.com/reference/post_hash-certificate-get-1.md): /hash/certificate/get
+  - [OTP Hash Sign](https://docs.evrotrust.com/reference/post_hash-offline-send-1.md): /hash/offline/send
+  - [Check Hash Status](https://docs.evrotrust.com/reference/post_hash-offline-check-1.md): /hash/offline/check
+  - [Download Hash](https://docs.evrotrust.com/reference/post_hash-offline-download-2-1.md): /hash/offline/download
+  - [Withdraw File](https://docs.evrotrust.com/reference/post_document-offline-withdraw-1-1-1-1.md): /document/offline/withdraw
+- [Group OTP eSign Hash (File)](https://docs.evrotrust.com/reference/copy-of-otp-esign-hash-file.md)
+  - [OTP Hash Group file Init](https://docs.evrotrust.com/reference/hash-group-offline-file-init.md): /hash/group/offline/file/init
+  - [Group Activate ](https://docs.evrotrust.com/reference/post_hash-group-offline-activate-1.md): /hash/group/offline/activate
+  - [Group Resend SMS](https://docs.evrotrust.com/reference/post_hash-group-offline-activate-resend-1.md): /hash/group/offline/activate/resend
+  - [Group Check Cert Status](https://docs.evrotrust.com/reference/post_hash-group-certificate-check-1.md): /hash/group/certificate/check
+  - [Group Get Certificate](https://docs.evrotrust.com/reference/post_hash-group-certificate-get-1.md): /hash/group/certificate/get
+  - [Group Hash Sign](https://docs.evrotrust.com/reference/post_hash-group-offline-send-1.md): /hash/group/offline/send
+  - [Group Check Status](https://docs.evrotrust.com/reference/post_hash-group-offline-check-1.md): /hash/group/offline/check
+  - [Download Group Hash](https://docs.evrotrust.com/reference/post_hash-offline-download-1-2.md): /hash/group/offline/download
+  - [Withdraw File](https://docs.evrotrust.com/reference/post_document-offline-withdraw-1-1-1-1-1.md): /document/offline/withdraw
+- [OTP eSign Hash (Agent)](https://docs.evrotrust.com/reference/copy-of-otp-esign-hash-agent.md)
+  - [OTP Hash Init](https://docs.evrotrust.com/reference/hash-offline-init.md): /hash/offline/init
+  - [Activate Certificate](https://docs.evrotrust.com/reference/hash-offline-activate.md): /hash/offline/activate
+  - [Resend SMS](https://docs.evrotrust.com/reference/hash-offline-activate-resend.md): /hash/offline/activate/resend
+  - [Check Cert Status](https://docs.evrotrust.com/reference/hash-certificate-check.md): /hash/certificate/check
+  - [Get Certificate](https://docs.evrotrust.com/reference/hash-certificate-get.md): /hash/certificate/get
+  - [OTP Hash Sign](https://docs.evrotrust.com/reference/hash-offline-send.md): /hash/offline/send
+  - [Check Hash Status](https://docs.evrotrust.com/reference/hash-offline-check.md): /hash/offline/check
+  - [Withdraw File](https://docs.evrotrust.com/reference/post_document-offline-withdraw-1-1-1.md): /document/offline/withdraw
+- [Group OTP eSign Hash (Agent)](https://docs.evrotrust.com/reference/one-time-signatures-hash.md)
+  - [Group OTP Hash Init](https://docs.evrotrust.com/reference/hash-group-offline-init.md): /hash/group/offline/init
+  - [Group Activate ](https://docs.evrotrust.com/reference/hash-group-offline-activate.md): /hash/group/offline/activate
+  - [Group Resend SMS](https://docs.evrotrust.com/reference/hash-group-offline-activate-resend.md): /hash/group/offline/activate/resend
+  - [Group Check Cert Status](https://docs.evrotrust.com/reference/hash-group-certificate-check.md): /hash/group/certificate/check
+  - [Group Get Certificate](https://docs.evrotrust.com/reference/hash-group-certificate-get.md): /hash/group/certificate/get
+  - [Group Hash Sign](https://docs.evrotrust.com/reference/hash-group-offline-send.md): /hash/group/offline/send
+  - [Group Check Status](https://docs.evrotrust.com/reference/hash-group-offline-check.md): /hash/group/offline/check
+  - [Download Group Hash](https://docs.evrotrust.com/reference/post_hash-offline-download-1-2-1.md): /hash/group/offline/download
+  - [Withdraw File](https://docs.evrotrust.com/reference/post_document-offline-withdraw-1-1.md): /document/offline/withdraw
+- [OTP eSign PDF (File)](https://docs.evrotrust.com/reference/copy-of-otp-esign-pdf-agent.md)
+  - [OTP eSign PDF (File)](https://docs.evrotrust.com/reference/document-doc-offline-file.md): /document/doc/offline/file
+  - [Activate Signing](https://docs.evrotrust.com/reference/post_document-doc-offline-activate-1.md): /document/doc/offline/activate
+  - [Resend SMS](https://docs.evrotrust.com/reference/post_document-doc-offline-activate-resend-1.md): /document/doc/offline/activate/resend
+  - [Check Status File](https://docs.evrotrust.com/reference/post_document-status-4.md): /document/status
+  - [Withdraw File](https://docs.evrotrust.com/reference/post_document-offline-withdraw-1.md): /document/offline/withdraw
+- [Group OTP eSign PDF (File)](https://docs.evrotrust.com/reference/copy-of-otp-esign-pdf-file.md)
+  - [Group eSign PDF (File)](https://docs.evrotrust.com/reference/document-group-offline-file.md): /document/group/offline/file
+  - [Group Activate Signing](https://docs.evrotrust.com/reference/post_document-group-offline-activate-1.md): /document/group/offline/activate
+  - [Group Resend SMS](https://docs.evrotrust.com/reference/post_document-group-offline-activate-resend-1.md): /document/group/offline/activate/resend
+  - [Check Status Group](https://docs.evrotrust.com/reference/post_document-group-status-4.md): /document/group/status
+  - [Download Group](https://docs.evrotrust.com/reference/post_document-group-download-3-1.md): /document/group/download
+- [OTP eSign PDF (Agent)](https://docs.evrotrust.com/reference/one-time-signatures-documents.md)
+  - [OTP eSign PDF (Agent)](https://docs.evrotrust.com/reference/document-doc-offline.md): /document/doc/offline
+  - [Activate Signing](https://docs.evrotrust.com/reference/document-doc-offline-activate.md): /document/doc/offline/activate
+  - [Resend SMS](https://docs.evrotrust.com/reference/document-doc-offline-activate-resend.md): /document/doc/offline/activate/resend
+  - [Check Status File](https://docs.evrotrust.com/reference/post_document-status-5.md): /document/status
+  - [Download File](https://docs.evrotrust.com/reference/post_document-download-3.md): /document/download
+  - [Withdraw File](https://docs.evrotrust.com/reference/document-offline-withdraw.md): /document/offline/withdraw
+- [Group OTP eSign PDF (Agent)](https://docs.evrotrust.com/reference/copy-of-otp-esign-pdf-agent-1.md)
+  - [Group eSign PDF (Agent)](https://docs.evrotrust.com/reference/document-group-offline.md): /document/group/offline
+  - [Group Activate Signing](https://docs.evrotrust.com/reference/document-group-offline-activate.md): /document/group/offline/activate
+  - [Group Resend SMS](https://docs.evrotrust.com/reference/document-group-offline-activate-resend.md): /document/group/offline/activate/resend
+  - [Check Status Group](https://docs.evrotrust.com/reference/post_document-group-status-5.md): /document/group/status
+  - [Download Group](https://docs.evrotrust.com/reference/post_document-group-download-3.md): /document/group/download
+- e-Delivery Mob App & SDK
+  - [Send File for Delivery](https://docs.evrotrust.com/reference/delivery-online.md): /delivery/online
+  - [Check Delivery Status](https://docs.evrotrust.com/reference/delivery-receipts-status.md): /delivery/receipts/status
+  - [Download Receipts](https://docs.evrotrust.com/reference/delivery-receipts-download.md): /delivery/receipts/download
+
+## API Reference: Callback
+- [e-Signatures ](https://docs.evrotrust.com/reference/e-signatures.md): Webhook Notifications for e-Signature Workflows.
+  - [Document Ready](https://docs.evrotrust.com/reference/readydocument.md): Shows the document status. The callback is triggered on Signed, Rejected, Expired, Failed, Withdrawn and Failed face recognition statuses.<br/><br/>"status": 1 - Pending, 2 - Signed, 3 - Rejected, 4…
+  - [Document Group Ready](https://docs.evrotrust.com/reference/readygroupdocument.md): Shows the document group status. The callback is triggered on Signed, Rejected, Expired, Failed, Withdrawn and Failed face recognition statuses.<br/><br/>"status": 1 - Pending, 2 - Signed, 3 -…
+  - [One-time Signing Document Ready](https://docs.evrotrust.com/reference/readydocumentoffline.md): Shows the one-time sign document status. The callback is triggered on Signed, Rejected, Expired, Failed and Withdrawn statuses.<br/><br/>"status": 1 - Pending, 2 - Signed, 3 - Rejected, 4 - Expired,…
+  - [One-time Signing Document Group Ready](https://docs.evrotrust.com/reference/readygroupofflinedocument.md): Shows the one-time sign document group status. The callback is triggered on Signed, Rejected, Expired, Failed and Withdrawn statuses.<br/><br/>"status": 1 - Pending, 2 - Signed, 3 - Rejected, 4 -…
+  - [One-time Signing Certificate Hash Ready](https://docs.evrotrust.com/reference/readyofflinehashcertificate.md): One-time signing certificate hash ready. Valid status values:<br/>"status": 2 - Active, 3 - Blocked, 4 - Revoked. The callback is triggered only on Active status.<br/>
+  - [Check Identification Status](https://docs.evrotrust.com/reference/user-identification-status.md)
+
+## API Reference: Other
+- All Signing
+  - [Check Status Thread](https://docs.evrotrust.com/reference/document-thread-status.md): /document/thread/status
+  - [Check Status Multiple Threads](https://docs.evrotrust.com/reference/document-threads-status.md): /document/threads/status
+  - [Check Status File](https://docs.evrotrust.com/reference/document-status.md): /document/status
+  - [Check Status Group](https://docs.evrotrust.com/reference/document-group-status.md): /document/group/status
+  - [Download File](https://docs.evrotrust.com/reference/post_document-download.md): /document/download
+  - [Download Group](https://docs.evrotrust.com/reference/document-group-download.md): /document/group/download
+  - [Download Hash](https://docs.evrotrust.com/reference/hash-offline-download.md): /hash/offline/download
+  - [Download Group Hash](https://docs.evrotrust.com/reference/post_hash-offline-download-1.md): /hash/group/offline/download
+- [Download Signed Terms from Group](https://docs.evrotrust.com/reference/document-group-terms-offline-download.md)
+- [Download Signed Terms](https://docs.evrotrust.com/reference/document-terms-offline-download.md)
+- [eID (Legal Entities)](https://docs.evrotrust.com/reference/document-doc-identification-lpis.md)

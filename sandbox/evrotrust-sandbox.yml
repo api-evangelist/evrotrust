@@ -1,0 +1,7 @@
+generated: '2026-10-18'
+method: searched
+source: https://docs.evrotrust.com/reference/overview.md
+description: Sandbox environment for testing integration with 1:1 functionality as production
+docs: https://docs.evrotrust.com/reference/overview.md
+url: https://api.sandbox.evrotrust.com/vendor
+note: Sandbox uses same API endpoints as production with test credentials

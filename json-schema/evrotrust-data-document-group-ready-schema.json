@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/evrotrust/main/json-schema/evrotrust-data-document-group-ready-schema.json",
+  "title": "DataDocumentGroupReady",
+  "x-generated": "2026-10-18",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/evrotrust-api-openapi.yml#/components/schemas/DataDocumentGroupReady",
+  "properties": {
+    "transactionID": {
+      "type": "string"
+    },
+    "status": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "statusLpis": {
+      "type": "string"
+    },
+    "rejectReason": {
+      "type": "string"
+    },
+    "automatedSignError": {
+      "type": "string"
+    }
+  }
+}
