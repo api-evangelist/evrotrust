@@ -52,3 +52,36 @@ plans:
   - Integration via API or white-label SDK
   limits: []
 note: Consumer pricing for individual eSignature plans found. Source page has bot protection preventing verification.
+x-canonical:
+  generated: '2026-10-18'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  - subscription
+  units: []
+  plans:
+  - name: Free plan
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Plan 5
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Plan 100
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Business Plan
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
