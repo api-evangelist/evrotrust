@@ -1,19 +1,90 @@
 generated: '2026-10-18'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/evrotrust/integrations
 - https://n8n.io/integrations/evrotrust/
 - https://composio.dev/toolkits/evrotrust
 - https://monid.ai/tools/evrotrust
+- https://crc.bg/files/_en/TSL_BG.xml
+- https://crc.bg/files/_en/TSL_BG.xml
 checked:
+- https://api.nuget.org/v3
 - https://composio.dev/toolkits/evrotrust
+- https://crates.io/api/v1
+- https://crc.bg/files/_en/TSL_BG.xml
 - https://docs.evrotrust.com/docs
+- https://ec.europa.eu/tools/lotl/eu-lotl.xml
 - https://evrotrust.com/
 - https://monid.ai/tools/evrotrust
 - https://n8n.io/integrations/evrotrust/
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/apps/evrotrust/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: EU Trusted List (eIDAS)
+  partner: null
+  partner_match: register
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://crc.bg/files/_en/TSL_BG.xml
+  contract_reference:
+    register: EU List of Trusted Lists (eIDAS qualified trust service providers)
+    spec_file: null
+    role: qualified-trust-service-provider
+    registered_name: Evrotrust Technologies JSC
+    member_state: BG
+    trusted_list: https://crc.bg/files/_en/TSL_BG.xml
+    services:
+    - QES-certificates
+    - QSeal-certificates
+    - QWAC
+    - qualified-e-delivery
+    - qualified-preservation
+    - qualified-timestamp
+    - qualified-validation
+    lotl: https://ec.europa.eu/tools/lotl/eu-lotl.xml
+    matched_domain: evrotrust.com
+    detected_by: sweep-legal.py
+    detected: '2026-10-19'
+  source: eutl
+  detected_by: sweep-legal.py
+  first_seen: '2026-10-19'
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@evrotrust/et-react-native-wl-sdk
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@evrotrust/et-react-native-wl-sdk'
+      version: 2.0.44
+      released: '2026-10-02'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@evrotrust/et-react-native-wl-sdk
+      repo_leg: domain:evrotrust.com
+      publisher_leg: email:evrotrust.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-20'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-20'
 templates: []
 note: No marketplace integrations or partner listings found in documentation
